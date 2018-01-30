@@ -1,5 +1,5 @@
 package org.jandas.io;
 
-public interface IWriter {
+public interface Writer {
     void save();
 }

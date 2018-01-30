@@ -32,7 +32,7 @@ public class DataFrameWriter {
 
     private void save(String format, String path, DataFrame dataFrame) {
         addPathToOptions(path);
-        IWriter writer;
+        Writer writer;
 
         if ("csv".equals(format)) {
             writer = new CsvWriter(options, dataFrame);

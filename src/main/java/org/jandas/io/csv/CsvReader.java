@@ -1,11 +1,11 @@
 package org.jandas.io.csv;
 
 import org.jandas.DataFrame;
-import org.jandas.io.IReader;
+import org.jandas.io.Reader;
 
 import java.util.Map;
 
-public class CsvReader implements IReader {
+public class CsvReader implements Reader {
 
     private Map<String, String> options;
 

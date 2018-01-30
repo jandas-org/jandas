@@ -1,11 +1,11 @@
 package org.jandas.io.parquet;
 
 import org.jandas.DataFrame;
-import org.jandas.io.IWriter;
+import org.jandas.io.Writer;
 
 import java.util.Map;
 
-public class ParquetWriter implements IWriter {
+public class ParquetWriter implements Writer {
 
     private Map<String, String> options;
     private DataFrame dataFrame;

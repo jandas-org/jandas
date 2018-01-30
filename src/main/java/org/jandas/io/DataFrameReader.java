@@ -1,12 +1,10 @@
 package org.jandas.io;
 
 import org.jandas.DataFrame;
-import org.jandas.Series;
 import org.jandas.io.csv.CsvReader;
 import org.jandas.io.parquet.ParquetReader;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class DataFrameReader {
@@ -37,7 +35,7 @@ public class DataFrameReader {
 
     private DataFrame load(String format, String path) {
         addPathToOptions(path);
-        IReader reader;
+        Reader reader;
 
         if ("csv".equals(format)) {
             reader = new CsvReader(options);

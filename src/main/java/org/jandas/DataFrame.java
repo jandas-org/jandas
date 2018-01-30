@@ -1,5 +1,8 @@
 package org.jandas;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Collectors;
 import org.jandas.io.DataFrameReader;
 import org.jandas.io.DataFrameWriter;
 
@@ -9,30 +12,45 @@ import java.util.List;
 
 public class DataFrame {
 
-    List<Series> data;
+  private String name;
+  private List<Column> data = new ArrayList<>();
 
-    /** Constructors */
+  public DataFrame(String name) {
+    this.name = name;
+  }
 
-    public DataFrame() {
-        data = new ArrayList<>();
-    }
+  public DataFrame(String name, Column... columns) {
+    this(name);
+    Collections.addAll(data, columns);
+  }
 
-    public DataFrame(Series... series) {
-        this();
-        Collections.addAll(data, series);
-    }
+  public String getName() {
+    return name;
+  }
 
-    /** Serialization / IO */
+  public int getColumnCount() {
+    return data.size();
+  }
 
-    public DataFrameWriter write() {
-        return new DataFrameWriter(this);
-    }
+  public List<Column> getColumns() {
+    return data;
+  }
 
-    public static DataFrameReader read() {
-        return new DataFrameReader();
-    }
+  public List<Column> getColumns(String... names) {
+    Map<String, Column> idToColumnMap = data.stream().collect(
+        Collectors.toMap(Column::getName, c -> c));
 
-    public List<Series> getData() {
-        return data;
-    }
+    return Arrays.stream(names)
+        .filter(idToColumnMap::containsKey)
+        .map(idToColumnMap::get)
+        .collect(Collectors.toList());
+  }
+
+  public DataFrameWriter write() {
+    return new DataFrameWriter(this);
+  }
+
+  public static DataFrameReader read() {
+    return new DataFrameReader();
+  }
 }

@@ -1,11 +1,11 @@
 package org.jandas.io.parquet;
 
 import org.jandas.DataFrame;
-import org.jandas.io.IReader;
+import org.jandas.io.Reader;
 
 import java.util.Map;
 
-public class ParquetReader implements IReader {
+public class ParquetReader implements Reader {
 
     private Map<String, String> options;
 
