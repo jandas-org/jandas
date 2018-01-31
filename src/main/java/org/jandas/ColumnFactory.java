@@ -5,10 +5,11 @@ import org.apache.arrow.memory.RootAllocator;
 import org.apache.arrow.vector.types.FloatingPointPrecision;
 import org.apache.arrow.vector.types.pojo.ArrowType;
 import org.apache.arrow.vector.types.pojo.FieldType;
+import org.jandas.arrow.ArrowConfig;
 
 public class ColumnFactory {
 
-  private BufferAllocator bufferAllocator = new RootAllocator(Integer.MAX_VALUE);
+  private BufferAllocator bufferAllocator = ArrowConfig.getInstance().getBufferAllocator();
   private static ColumnFactory instance = new ColumnFactory();
 
   private ColumnFactory() {}
