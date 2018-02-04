@@ -9,11 +9,7 @@ import org.jandas.arrow.ArrowContext;
 public class BaseColumn<T> implements Column<T> {
 
   protected BufferAllocator allocator;
-  protected Field field;
-
-  // arrow
-  protected FieldType fieldType;
-  protected FieldVector fieldVector;
+  private Field field;
 
   public BaseColumn(String name, DataType dataType) {
     this(new Field(name, dataType));

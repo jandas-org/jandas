@@ -6,14 +6,13 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class DoubleColumnTest extends BaseColumnTest {
+public class DoubleColumnTest extends BaseTest {
 
   @Test
   public void testColumn() {
-    Column doubleColumn = ColumnFactory.getInstance().createColumn("id", DataType.Double);
+    DoubleColumn doubleColumn = new DoubleColumn("id");
 
     assertEquals("id", doubleColumn.name());
-    assertTrue(doubleColumn instanceof DoubleColumn);
     assertEquals(DataType.Double, doubleColumn.dataType());
   }
 

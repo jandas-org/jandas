@@ -10,21 +10,20 @@ import java.util.List;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
-public class IntegerColumnTest extends BaseColumnTest {
+public class IntegerColumnTest extends BaseTest {
 
   @Test
   public void testColumn() {
-    Column integerColumn = ColumnFactory.getInstance().createColumn("id", DataType.Integer);
+    IntegerColumn integerColumn = new IntegerColumn("id");
 
     assertEquals("id", integerColumn.name());
-    assertTrue(integerColumn instanceof IntegerColumn);
     assertEquals(DataType.Integer, integerColumn.dataType());
   }
 
   @Test
   public void testColumnAndList() {
-    Column integerColumn = ColumnFactory.getInstance().createColumn("id", DataType.Integer);
-    List list = Arrays.asList(11, 12, 13, 14);
+    IntegerColumn integerColumn = new IntegerColumn("id");
+    List<Integer> list = Arrays.asList(11, 12, 13, 14);
 
     assertEquals(0, integerColumn.length());
 
@@ -35,7 +34,6 @@ public class IntegerColumnTest extends BaseColumnTest {
     List<Integer> result = integerColumn.toList();
 
     assertThat(result, CoreMatchers.hasItems(11,12,13,14));
-
   }
 
 

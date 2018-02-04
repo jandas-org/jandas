@@ -5,13 +5,13 @@ import org.apache.arrow.memory.RootAllocator;
 import org.junit.After;
 import org.junit.Before;
 
-public class BaseColumnTest {
+public class BaseTest {
 
   BufferAllocator bufferAllocator;
 
   @Before
   public void setup() {
-    bufferAllocator = new RootAllocator(Integer.MAX_VALUE);
+    bufferAllocator = new RootAllocator(Long.MAX_VALUE);
   }
 
   @After
