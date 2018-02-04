@@ -80,6 +80,21 @@ public class DatasetTests {
     assertNull(ds.rows(3, 1));
   }
 
+  @Test
+  public void testShow() {
+    Column col1 = ColumnFactory.getInstance().createColumn("id", DataType.Integer);
+    Column col2 = ColumnFactory.getInstance().createColumn("name", DataType.String);
+    Column col3 = ColumnFactory.getInstance().createColumn("height", DataType.Double);
+
+    col1.fromList(Arrays.asList(11, 22, 33, 55));
+    col2.fromList(Arrays.asList("john", "peter", "tom", "jack"));
+    col3.fromList(Arrays.asList(150.0, 170.0, 165.0, 158.0));
+
+    Dataset ds = new Dataset("df1", col1, col2, col3);
+
+    ds.show();
+  }
+
   @Test(expected = UnsupportedOperationException.class)
   public void testWrite() {
     Dataset df = new Dataset("df");

@@ -2,7 +2,6 @@ package org.jandas;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.arrow.vector.IntVector;
 
 public class IntegerColumn extends BaseColumn<Integer> {
@@ -17,6 +16,11 @@ public class IntegerColumn extends BaseColumn<Integer> {
   @Override
   public int length() {
     return intVector.getValueCount();
+  }
+
+  @Override
+  public Integer getValue(int index) {
+    return intVector.get(index);
   }
 
   @Override

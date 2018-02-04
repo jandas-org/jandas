@@ -1,17 +1,16 @@
 package org.jandas;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import org.jandas.arrow.ArrowTable;
 import org.jandas.io.DatasetReader;
 import org.jandas.io.DatasetWriter;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Dataset as a collection of columns.
@@ -163,6 +162,18 @@ public class Dataset implements Iterable<Column> {
     }
 
     return rows;
+  }
+
+  /**
+   * Prints the dataset
+   */
+  public void show() {
+    for (int r = 0; r < rowCount(); r++) {
+      final int index = r;
+      String rowString = data.stream()
+          .map(c -> c.getValue(index).toString()).collect(Collectors.joining(", "));
+      System.out.println(rowString);
+    }
   }
 
   /**

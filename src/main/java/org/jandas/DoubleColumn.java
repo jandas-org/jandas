@@ -19,6 +19,11 @@ public class DoubleColumn extends BaseColumn<Double> {
   }
 
   @Override
+  public Double getValue(int index) {
+    return float8Vector.get(index);
+  }
+
+  @Override
   public Column<Double> fromList(List<Double> list) {
     float8Vector.allocateNew();
     for (int i = 0; i < list.size(); i++) {

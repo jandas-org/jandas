@@ -3,7 +3,6 @@ package org.jandas;
 import java.util.List;
 import org.apache.arrow.memory.BufferAllocator;
 import org.apache.arrow.vector.FieldVector;
-import org.apache.arrow.vector.ValueVector;
 import org.apache.arrow.vector.types.pojo.FieldType;
 import org.jandas.arrow.ArrowContext;
 
@@ -42,6 +41,11 @@ public class BaseColumn<T> implements Column<T> {
   @Override
   public int length() {
     return 0;
+  }
+
+  @Override
+  public T getValue(int index) {
+    return null;
   }
 
   @Override

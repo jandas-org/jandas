@@ -10,6 +10,8 @@ public interface Column<T> {
 
   int length();
 
+  T getValue(int index);
+
   Column<T> fromList(List<T> list);
 
   List<T> toList();
